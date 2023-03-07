@@ -4,7 +4,7 @@
   width: 100%;
   cursor: pointer;
   display: block;
-  font-family: "WorkSans";
+  font-family: "WorkSans",sans-serif;
   font-size: 14px;
   color: #111111;
   border: none;
@@ -16,7 +16,7 @@
   background-repeat: no-repeat, repeat;
 
   & option {
-    font-family: "WorkSans";
+    font-family: "WorkSans",sans-serif;
     font-size: 14px;
     color: #111111;
   }
