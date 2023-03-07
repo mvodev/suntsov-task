@@ -12,7 +12,7 @@
   }
 
   &__header {
-    font-family: 'PTSans';
+    font-family: 'PTSans',sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 49px;
@@ -24,14 +24,14 @@
   }
 
   &__extra-header {
-    font-family: 'WorkSans';
+    font-family: 'WorkSans',sans-serif;
     font-size: 22px;
     line-height: 26px;
     color: #111111;
   }
 
   &__description {
-    font-family: 'WorkSans';
+    font-family: 'WorkSans',sans-serif;
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0px;
@@ -62,7 +62,7 @@
     color: #7C7C7C;
     display: flex;
     flex-direction: column;
-    font-family: WorkSans;
+    font-family: 'WorkSans',sans-serif;
     font-size: 12px;
     line-height: 14px;
   }
@@ -78,7 +78,7 @@
   }
 
   &__input::placeholder,&__email::placeholder {
-    font-family: 'WorkSans';
+    font-family: 'WorkSans',sans-serif;
     font-size: 14px;
     line-height: 16px;
     color: #111111;
@@ -132,7 +132,7 @@
   }
 
   &__gender-label {
-    font-family: 'WorkSans';
+    font-family: 'WorkSans',sans-serif;
     font-size: 14px;
     line-height: 16px;
     color: #111111;
@@ -169,7 +169,7 @@
     background: #5A61ED;
     border: 0.5px solid #FFFFFF;
     cursor: pointer;
-    font-family: 'PTSans';
+    font-family: 'PTSans',sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
@@ -215,7 +215,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-family: 'WorkSans';
+    font-family: 'WorkSans',sans-serif;
     font-size: 13px;
     font-weight: 200;
     line-height: 15px;
