@@ -1,5 +1,56 @@
+include ../select/select
 mixin sign-up( { action='#' }={}  )
+  - const year = new Date().getFullYear()
+  - const years = []
+  - let day = 1
+  - const days = []
+  - let currentYear = 1950
+  while currentYear <= year
+    - years.push(currentYear++)
+  while day <= 31
+    - days.push(day++)
   form(action=action class="sign-up js-sign-up") 
     .sign-up__stripe
-    
+      h2.sign-up__header Sign up
     .sign-up__form
+      h2.sign-up__extra-header New user? 
+      h3.sign-up__description Use the form below to create your account.
+      .sign-up__name-wrapper 
+        .sign-up__label
+          span First Name
+          input(type="text" class="sign-up__input" placeholder="Alice")
+        .sign-up__label
+          span Last Name
+          input(type="text" class="sign-up__input" placeholder="Miller")
+      .sign-up__select-wrapper 
+        .sign-up__label
+          span Nationality
+          .sign-up__nationality
+            +select({options:['American','Russian']}) 
+        .sign-up__label
+          span E-mail
+          input(type="email" class="sign-up__email" placeholder="alice.miller@yahoo.com")
+      .sign-up__date-wrapper
+        .sign-up__label
+          span Date of birth
+          .sign-up__options-wrapper
+            .sign-up__date
+              +select({options:days})
+            .sign-up__month
+              +select({options:['January','February','March','April','May','June','July','August','September','October','November','December']})
+            .sign-up__year
+              +select({options:years})
+        .sign-up__label 
+          span Gender 
+          .sign-up__gender-wrapper
+            input(type="radio" id="male" name="gender" value="Male")
+            label(for="male" class="sign-up__gender-label") Male
+            input(type="radio" id="female" name="gender" value="Female")
+            label(for="female" class="sign-up__gender-label") Female
+      .sign-up__password-wrapper 
+        .sign-up__label
+          span Password
+          input(type="password" class="sign-up__password" name="password")
+        .sign-up__label
+          span Confirm Password
+          input(type="password" class="sign-up__password" name="confirm password")

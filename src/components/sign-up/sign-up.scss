@@ -4,15 +4,137 @@
   display: flex;
   flex-direction: row;
 
+  &__header {
+    font-family: 'PTSans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 49px;
+    line-height: 63px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    writing-mode:vertical-lr;
+    transform: scale(-1);
+  }
+
+  &__extra-header {
+    font-family: 'WorkSans';
+    font-size: 22px;
+    line-height: 26px;
+    color: #111111;
+  }
+
+  &__description {
+    font-family: 'WorkSans';
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #111111;
+    margin-bottom: 20px;
+  }
+
   &__stripe {
     background: #5A61ED;
     max-width: 137px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-bottom: 22px;
+    padding-right: 6px;
   }
 
   &__form {
     background: #FFFFFF;
     width: 100%;
+    padding: 38.5px 21px 0 21px;
+  }
+
+  &__name-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 14.5px;
+  }
+
+  &__label {
+    color: #7C7C7C;
+    display: flex;
+    flex-direction: column;
+    font-family: WorkSans;
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  &__input {
+    border-bottom: 1px solid #F2F2F2;
+    height: 27px;
+    width: 234px;
+  }
+
+  &__input::placeholder {
+    font-family: 'WorkSans';
+    font-size: 14px;
+    line-height: 16px;
+    color: #111111;
+  }
+
+  &__select-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 14.5px;
+  }
+
+  &__date-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 14.5px;
+  }
+
+  &__date {
+    width: 56px;
+  }
+
+  &__month {
+    width: 91px;
+  }
+
+  &__year {
+    width: 67px;
+  }
+
+  &__nationality {
+    width: 234px;  
+  }
+
+  &__gender-label {
+    font-family: 'WorkSans';
+    font-size: 14px;
+    line-height: 16px;
+    color: #111111;
+  }
+  &__gender-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 19px;
+  }
+
+  &__options-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  &__password {
+    width: 234px;
+    border-bottom: 1px solid #F2F2F2;
+    height: 27px;
+  }
+
+  &__password-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 14.5px;
   }
 
 }
