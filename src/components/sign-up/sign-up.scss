@@ -178,4 +178,21 @@
     color: red;
   }
 
+  &__submit-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__login {
+    display: flex;
+    flex-direction: row;
+    font-family: 'WorkSans';
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 15px;
+    & a {
+      color: #5A61ED;
+    }
+  }
+
 }

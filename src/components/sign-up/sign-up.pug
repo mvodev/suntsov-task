@@ -1,5 +1,5 @@
 include ../select/select
-mixin sign-up( { action='#' }={}  )
+mixin sign-up( { action='#', loginUrl='http://mock-adress-change-me' }={}  )
   - const year = new Date().getFullYear()
   - const years = []
   - let day = 1
@@ -59,4 +59,8 @@ mixin sign-up( { action='#' }={}  )
         .sign-up__label
           span Confirm Password
           input(type="password" class="sign-up__password sign-up__input_extra-password_input js-sign-up__input_extra-password_input" name="confirm password")
-      input(type="submit" class="sign-up__submit js-sign-up__submit" value="Complete Signup")
+      .sign-up__submit-wrapper
+        .sign-up__login
+          span Have an account? 
+          a(href=loginUrl) Login
+        input(type="submit" class="sign-up__submit js-sign-up__submit" value="Complete Signup")

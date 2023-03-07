@@ -86,7 +86,9 @@ class SignUpForm {
     this.nameInput.classList.remove('sign-up__input_error');
   }
 
+  // eslint-disable-next-line class-methods-use-this
   showWarning() {
+    // eslint-disable-next-line no-alert
     alert('Internal server error!');
   }
 }
