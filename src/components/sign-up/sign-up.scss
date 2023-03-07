@@ -55,7 +55,7 @@
   &__form {
     background: #FFFFFF;
     width: 100%;
-    padding: 38.5px 21px 32px 21px;
+    padding: 38.5px 24px 33px 21px;
   }
 
   &__label {
@@ -91,13 +91,18 @@
   &__select-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     gap: 14.5px;
   }
+  &__name-wrapper,&__select-wrapper {
+    justify-content: space-between;
+  }
 
-  &__name-wrapper,
+  &__name-wrapper {
+    margin-bottom: 19px;
+  }
+
   &__select-wrapper {
-    margin-bottom: 16px;
+    margin-bottom: 17px;
   }
 
   &__date-wrapper {
