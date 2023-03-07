@@ -1,4 +1,4 @@
-import { request } from "../../js/request";
+import { request } from '../../js/request';
 
 class SignUpForm {
   constructor(formRootElem) {
@@ -11,16 +11,18 @@ class SignUpForm {
     this.emailInput = this.formRootElem.querySelector('.js-sign-up__input_email_input');
     this.passwordError = this.formRootElem.querySelector('.js-sign-up__error_password_error');
     this.passwordInput = this.formRootElem.querySelector('.js-sign-up__input_password_input');
-    this.confirmPasswordInput = this.formRootElem.querySelector('.js-sign-up__input_extra-password_input')
+    this.submitButton = this.formRootElem.querySelector('.js-sign-up__submit');
+    this.confirmPasswordInput = this.formRootElem.querySelector('.js-sign-up__input_extra-password_input');
     this.bindEvents();
   }
 
-  bindEvents(){
-    this.formRootElem.addEventListener('submit',this.handleSumbit.bind(this));
+  bindEvents() {
+    this.formRootElem.addEventListener('submit', this.handleSumbit.bind(this));
   }
 
   async handleSumbit(event) {
     event.preventDefault();
+    this.submitButton.classList.remove('sign-in__submit_error');
     const formData = new FormData(this.formRootElem);
     let error = false;
     if (formData.get('name').length === 0) {
@@ -37,7 +39,9 @@ class SignUpForm {
       this.emailError.textContent = 'Please input your email';
       this.emailInput.classList.add('sign-up__input_error');
       error = true;
-    } else if (!formData.get('email').match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+    } else if (
+      !formData.get('email').match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
+    ) {
       this.emailError.textContent = 'Please input correct email';
       this.emailInput.classList.add('sign-up__input_error');
       error = true;
@@ -50,17 +54,28 @@ class SignUpForm {
       this.passwordError.textContent = 'Your password must be more 8 digits';
       this.passwordInput.classList.add('sign-up__input_error');
       error = true;
+    } else if (!formData.get('password').match('^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})')) {
+      this.passwordError.textContent = 'Your password must contain at least 1 uppercase alphabetical character,1 numeric character,1 lowercase alphabetical character,at least one special character';
+      this.passwordInput.classList.add('sign-up__input_error');
+      error = true;
     }
     if (!error) {
+      this.nameError.textContent = '';
+      this.surnameError.textContent = '';
+      this.passwordError.textContent = '';
+      this.emailError.textContent = '';
       const serverResponce = await request();
-      const {status} = serverResponce;
-      if (status === 200 ) {
+      const { status } = serverResponce;
+      if (status === 200) {
         this.clearForm();
-        alert('Form successfully submitted')
+        // eslint-disable-next-line no-alert
+        alert('Form successfully submitted');
       } else if (status) {
         this.showWarning();
       }
-    };
+    } else {
+      this.submitButton.classList.add('sign-in__submit_error');
+    }
   }
 
   clearForm() {
@@ -70,11 +85,13 @@ class SignUpForm {
     this.surnameInput.classList.remove('sign-up__input_error');
     this.nameInput.classList.remove('sign-up__input_error');
   }
+
   showWarning() {
     alert('Internal server error!');
   }
 }
 
-document.querySelectorAll('.js-sign-up').forEach(formRootElem=>{
+document.querySelectorAll('.js-sign-up').forEach((formRootElem) => {
+  // eslint-disable-next-line no-new
   new SignUpForm(formRootElem);
-})
+});
