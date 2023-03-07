@@ -1,6 +1,7 @@
 .sign-up {
   max-width: 665px;
-  height: 481px;
+  width: 100%;
+  min-height: 481px;
   display: flex;
   flex-direction: row;
 
@@ -66,7 +67,7 @@
     line-height: 14px;
   }
 
-  &__input {
+  &__input,&__email {
     border-bottom: 1px solid #F2F2F2;
     height: 27px;
     width: 234px;
@@ -82,6 +83,7 @@
     line-height: 16px;
     color: #111111;
     opacity: 1;
+    outline: none;
   }
 
   &__name-wrapper,
@@ -89,6 +91,7 @@
   &__select-wrapper {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 14.5px;
   }
 
@@ -114,7 +117,7 @@
   }
 
   &__nationality {
-    width: 234px;  
+    width: 234px;
   }
 
   &__gender-label {
@@ -160,6 +163,7 @@
     line-height: 18px;
     letter-spacing: 0px;
     text-align: center;
+    margin-left: 10px;
   }
 
   &__submit:hover {
@@ -192,6 +196,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 10px;
   }
 
   &__login {
@@ -207,4 +212,16 @@
     }
   }
 
+}
+
+@media (max-width:720px) {
+  .sign-up {
+    &__date-wrapper,
+    &__name-wrapper,
+    &__select-wrapper,
+    &__password-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
