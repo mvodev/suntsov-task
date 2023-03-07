@@ -29,11 +29,17 @@ class SignUpForm {
       this.nameError.textContent = 'Please input your name';
       this.nameInput.classList.add('sign-up__input_error');
       error = true;
+    } else {
+      this.nameError.textContent = '';
+      this.nameInput.classList.remove('sign-up__input_error');
     }
     if (formData.get('surname').length === 0) {
       this.surnameError.textContent = 'Please input your surname';
       this.surnameInput.classList.add('sign-up__input_error');
       error = true;
+    } else {
+      this.surnameInput.classList.remove('sign-up__input_error');
+      this.surnameError.textContent = '';
     }
     if (formData.get('email').length === 0) {
       this.emailError.textContent = 'Please input your email';
@@ -45,6 +51,9 @@ class SignUpForm {
       this.emailError.textContent = 'Please input correct email';
       this.emailInput.classList.add('sign-up__input_error');
       error = true;
+    } else {
+      this.emailError.textContent = '';
+      this.emailInput.classList.remove('sign-up__input_error');
     }
     if (formData.get('password') !== formData.get('confirm password')) {
       this.passwordError.textContent = 'Your passwords don\'t match';
@@ -58,12 +67,11 @@ class SignUpForm {
       this.passwordError.textContent = 'Your password must contain at least 1 uppercase alphabetical character,1 numeric character,1 lowercase alphabetical character,at least one special character';
       this.passwordInput.classList.add('sign-up__input_error');
       error = true;
+    } else {
+      this.passwordError.textContent = '';
+      this.passwordInput.classList.remove('sign-up__input_error');
     }
     if (!error) {
-      this.nameError.textContent = '';
-      this.surnameError.textContent = '';
-      this.passwordError.textContent = '';
-      this.emailError.textContent = '';
       const serverResponce = await request();
       const { status } = serverResponce;
       if (status === 200) {
@@ -80,10 +88,6 @@ class SignUpForm {
 
   clearForm() {
     this.formRootElem.reset();
-    this.passwordInput.classList.remove('sign-up__input_error');
-    this.emailInput.classList.remove('sign-up__input_error');
-    this.surnameInput.classList.remove('sign-up__input_error');
-    this.nameInput.classList.remove('sign-up__input_error');
   }
 
   // eslint-disable-next-line class-methods-use-this
