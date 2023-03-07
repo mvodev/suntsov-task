@@ -55,7 +55,7 @@
   &__form {
     background: #FFFFFF;
     width: 100%;
-    padding: 38.5px 24px 33px 21px;
+    padding: 38.5px 24px 35px 21px;
   }
 
   &__label {
@@ -96,6 +96,12 @@
   &__name-wrapper,&__select-wrapper {
     justify-content: space-between;
   }
+  &__checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
 
   &__name-wrapper {
     margin-bottom: 19px;
@@ -135,6 +141,7 @@
     display: flex;
     flex-direction: row;
     gap: 19px;
+    margin-top: 5px;
   }
 
   &__options-wrapper {

@@ -1,9 +1,9 @@
 .select {
   appearance: none;
+  outline: none;
   width: 100%;
   cursor: pointer;
   display: block;
-  padding-right: 5px;
   font-family: "WorkSans";
   font-size: 14px;
   color: #111111;
@@ -12,7 +12,7 @@
   background-color: white;
   height: 25px;
   background-image: url('../../assets/images/arrow-down.svg');
-  background-position: right .7em top 50%, 0 0;
+  background-position: right 0 top 50%, 0 0;
   background-repeat: no-repeat, repeat;
 
   & option {

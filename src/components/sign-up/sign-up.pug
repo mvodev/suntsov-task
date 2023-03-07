@@ -49,10 +49,12 @@ mixin sign-up( { action='#', loginUrl='http://mock-adress-change-me' }={}  )
           .sign-up__label 
             span Gender 
             .sign-up__gender-wrapper
-              input(type="radio" id="male" name="gender" value="Male" checked)
-              label(for="male" class="sign-up__gender-label") Male
-              input(type="radio" id="female" name="gender" value="Female")
-              label(for="female" class="sign-up__gender-label") Female
+              .sign-up__checkbox
+                input(type="radio" id="male" name="gender" value="Male" checked)
+                label(for="male" class="sign-up__gender-label") Male
+              .sign-up__checkbox
+                input(type="radio" id="female" name="gender" value="Female")
+                label(for="female" class="sign-up__gender-label") Female
         .sign-up__password-wrapper 
           .sign-up__label
             span Password
