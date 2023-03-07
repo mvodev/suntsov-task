@@ -4,6 +4,12 @@
   display: flex;
   flex-direction: row;
 
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   &__header {
     font-family: 'PTSans';
     font-style: normal;
@@ -48,13 +54,7 @@
   &__form {
     background: #FFFFFF;
     width: 100%;
-    padding: 38.5px 21px 0 21px;
-  }
-
-  &__name-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 14.5px;
+    padding: 38.5px 21px 32px 21px;
   }
 
   &__label {
@@ -76,23 +76,29 @@
     border-bottom: 1px solid red;
   }
 
-  &__input::placeholder {
+  &__input::placeholder,&__email::placeholder {
     font-family: 'WorkSans';
     font-size: 14px;
     line-height: 16px;
     color: #111111;
+    opacity: 1;
   }
 
+  &__name-wrapper,
+  &__date-wrapper,
   &__select-wrapper {
     display: flex;
     flex-direction: row;
     gap: 14.5px;
   }
 
+  &__name-wrapper,
+  &__select-wrapper {
+    margin-bottom: 16px;
+  }
+
   &__date-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 14.5px;
+    margin-bottom: 17px;
   }
 
   &__date {
@@ -154,6 +160,10 @@
     line-height: 18px;
     letter-spacing: 0px;
     text-align: center;
+  }
+
+  &__submit:hover {
+    background: #7679a9;
   }
 
   &__submit.sign-in__submit_error {

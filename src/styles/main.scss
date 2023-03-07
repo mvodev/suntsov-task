@@ -13,11 +13,17 @@ html {
   background: #F2F2F2;
 }
 
-main h1{
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main h1{
   text-align: center;
   font-family: "PTSans";
   font-style: normal;
   font-weight: 400;
   font-size: 49px;
-  margin: 10px auto;
+  margin: 30px auto;
 }

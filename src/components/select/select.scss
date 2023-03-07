@@ -14,9 +14,12 @@
   background-image: url('../../assets/images/arrow-down.svg');
   background-position: right .7em top 50%, 0 0;
   background-repeat: no-repeat, repeat;
+
   & option {
     padding-right: 5px;
-    color: red;
+    font-family: "WorkSans";
+    font-size: 14px;
+    color: #111111;
   }
 
 }
