@@ -18,39 +18,45 @@ mixin sign-up( { action='#' }={}  )
       .sign-up__name-wrapper 
         .sign-up__label
           span First Name
-          input(type="text" class="sign-up__input" placeholder="Alice")
+          input(type="text" class="sign-up__input sign-up__input_name_input js-sign-up__input_name_input" placeholder="Alice" name="name")
+          span.sign-up__error.sign-up__error_name_error.js-sign-up__error_name_error
         .sign-up__label
           span Last Name
-          input(type="text" class="sign-up__input" placeholder="Miller")
+          input(type="text" class="sign-up__input sign-up__input_surname_input js-sign-up__input_surname_input" placeholder="Miller" name="surname")
+          span.sign-up__error.sign-up__error_surname_error.js-sign-up__error_surname_error
       .sign-up__select-wrapper 
         .sign-up__label
           span Nationality
           .sign-up__nationality
-            +select({options:['American','Russian']}) 
+            +select({options:['American','Russian'],name:'nationality'}) 
+          span.sign-up__error.sign-up__error_nationality_error.js-sign-up__error_nationality_error
         .sign-up__label
           span E-mail
-          input(type="email" class="sign-up__email" placeholder="alice.miller@yahoo.com")
+          input(type="text" class="sign-up__email sign-up__input_email_input js-sign-up__input_email_input" placeholder="alice.miller@yahoo.com" name="email")
+          span.sign-up__error.sign-up__error_email_error.js-sign-up__error_email_error 
       .sign-up__date-wrapper
         .sign-up__label
           span Date of birth
           .sign-up__options-wrapper
             .sign-up__date
-              +select({options:days})
+              +select({options:days,name:'day'})
             .sign-up__month
-              +select({options:['January','February','March','April','May','June','July','August','September','October','November','December']})
+              +select({options:['January','February','March','April','May','June','July','August','September','October','November','December'],name:'month'})
             .sign-up__year
-              +select({options:years})
+              +select({options:years,name:'year'})
         .sign-up__label 
           span Gender 
           .sign-up__gender-wrapper
-            input(type="radio" id="male" name="gender" value="Male")
+            input(type="radio" id="male" name="gender" value="Male" checked)
             label(for="male" class="sign-up__gender-label") Male
             input(type="radio" id="female" name="gender" value="Female")
             label(for="female" class="sign-up__gender-label") Female
       .sign-up__password-wrapper 
         .sign-up__label
           span Password
-          input(type="password" class="sign-up__password" name="password")
+          input(type="password" class="sign-up__password sign-up__input_password_input js-sign-up__input_password_input" name="password")
+          span.sign-up__error.sign-up__error_password_error.js-sign-up__error_password_error
         .sign-up__label
           span Confirm Password
-          input(type="password" class="sign-up__password" name="confirm password")
+          input(type="password" class="sign-up__password sign-up__input_extra-password_input js-sign-up__input_extra-password_input" name="confirm password")
+      input(type="submit" class="sign-up__submit" value="Complete Signup")

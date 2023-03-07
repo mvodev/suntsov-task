@@ -1,4 +1,4 @@
-mixin select( { options=[] }={}  )
-  select(class="select") 
+mixin select( { options=[],name }={}  )
+  select(class="select" name=name)  
     each option in options 
       option=option  
