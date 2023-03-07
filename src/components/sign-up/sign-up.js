@@ -1,3 +1,5 @@
+import { request } from "../../js/request";
+
 class SignUpForm {
   constructor(formRootElem) {
     this.formRootElem = formRootElem;
@@ -8,7 +10,8 @@ class SignUpForm {
     this.emailError = this.formRootElem.querySelector('.js-sign-up__error_email_error');
     this.emailInput = this.formRootElem.querySelector('.js-sign-up__input_email_input');
     this.passwordError = this.formRootElem.querySelector('.js-sign-up__error_password_error');
-    this.passwordInput = this.formRootElem.querySelector('.js-sign-up__input_password_input')
+    this.passwordInput = this.formRootElem.querySelector('.js-sign-up__input_password_input');
+    this.confirmPasswordInput = this.formRootElem.querySelector('.js-sign-up__input_extra-password_input')
     this.bindEvents();
   }
 
@@ -16,7 +19,7 @@ class SignUpForm {
     this.formRootElem.addEventListener('submit',this.handleSumbit.bind(this));
   }
 
-  handleSumbit(event) {
+  async handleSumbit(event) {
     event.preventDefault();
     const formData = new FormData(this.formRootElem);
     let error = false;
@@ -48,8 +51,27 @@ class SignUpForm {
       this.passwordInput.classList.add('sign-up__input_error');
       error = true;
     }
+    if (!error) {
+      const serverResponce = await request();
+      const {status} = serverResponce;
+      if (status === 200 ) {
+        this.clearForm();
+        alert('Form successfully submitted')
+      } else if (status) {
+        this.showWarning();
+      }
+    };
+  }
 
-    if (!error) this.formRootElem.submit();
+  clearForm() {
+    this.formRootElem.reset();
+    this.passwordInput.classList.remove('sign-up__input_error');
+    this.emailInput.classList.remove('sign-up__input_error');
+    this.surnameInput.classList.remove('sign-up__input_error');
+    this.nameInput.classList.remove('sign-up__input_error');
+  }
+  showWarning() {
+    alert('Internal server error!');
   }
 }
 
