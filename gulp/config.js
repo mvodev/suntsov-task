@@ -2,11 +2,11 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const paths = {
   views: {
-    src: './src/views/pages/*.html',
+    src: './src/views/pages/*.pug',
     dist: './dist/',
     watch: [
-      './src/views/**/*.html',
-      './src/components/**/*.html',
+      './src/views/**/*.pug',
+      './src/components/**/*.pug',
     ],
   },
   styles: {
@@ -25,9 +25,14 @@ const paths = {
       './src/components/**/*.js',
     ],
   },
+  favicon: {
+    src: './src/assets/favicon/**/*.{ico,png,webmanifest}',
+    dist: './dist/assets/favicon/',
+    watch: './src/assets/favicon/**/*.{ico,png}',
+  },
   images: {
     src: [
-      './src/assets/images/**/*.{jpg,jpeg,png,gif,svg,webp}',
+      './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
     ],
     dist: './dist/assets/images/',
     watch: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
@@ -36,11 +41,6 @@ const paths = {
     src: './src/assets/fonts/**/*.{ttf,woff,woff2}',
     dist: './dist/assets/fonts/',
     watch: './src/assets/fonts/**/*.{ttf,woff,woff2}',
-  },
-  favicon: {
-    src: './src/assets/favicon/**/*.{ico,png,webmanifest}',
-    dist: './dist/assets/favicon/',
-    watch: './src/assets/favicon/**/*.{ico,png}',
   },
   sprites: {
     src: './src/sprite/*.svg',
