@@ -44,16 +44,19 @@ class SignUpForm {
     if (formData.get('email').length === 0) {
       this.emailError.textContent = 'Please input your email';
       this.emailInput.classList.add('sign-up__input_error');
+      this.emailInput.classList.remove('sign-up__input_success');
       error = true;
     } else if (
       !formData.get('email').match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
     ) {
       this.emailError.textContent = 'Please input correct email';
       this.emailInput.classList.add('sign-up__input_error');
+      this.emailInput.classList.remove('sign-up__input_success');
       error = true;
     } else {
       this.emailError.textContent = '';
       this.emailInput.classList.remove('sign-up__input_error');
+      this.emailInput.classList.add('sign-up__input_success');
     }
     if (formData.get('password') !== formData.get('confirm password')) {
       this.passwordError.textContent = 'Your passwords don\'t match';
@@ -71,6 +74,7 @@ class SignUpForm {
       this.passwordError.textContent = '';
       this.passwordInput.classList.remove('sign-up__input_error');
     }
+
     if (!error) {
       const serverResponce = await request();
       const { status } = serverResponce;
@@ -78,8 +82,9 @@ class SignUpForm {
         this.clearForm();
         // eslint-disable-next-line no-alert
         alert('Form successfully submitted');
-      } else if (status) {
-        this.showWarning();
+      } else if (status === 500) {
+        // eslint-disable-next-line no-alert
+        alert('Internal server error!');
       }
     } else {
       this.submitButton.classList.add('sign-in__submit_error');
@@ -88,12 +93,6 @@ class SignUpForm {
 
   clearForm() {
     this.formRootElem.reset();
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  showWarning() {
-    // eslint-disable-next-line no-alert
-    alert('Internal server error!');
   }
 }
 
