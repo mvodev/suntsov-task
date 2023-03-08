@@ -67,7 +67,8 @@
     line-height: 14px;
   }
 
-  &__input,&__email {
+  &__input,
+  &__email {
     border-bottom: 1px solid #F2F2F2;
     height: 27px;
     width: 234px;
@@ -78,7 +79,8 @@
     border-bottom: 1px solid red;
   }
 
-  &__input::placeholder,&__email::placeholder {
+  &__input::placeholder,
+  &__email::placeholder {
     font-family: 'WorkSans',sans-serif;
     font-size: 14px;
     line-height: 16px;
@@ -94,9 +96,37 @@
     flex-direction: row;
     gap: 14.5px;
   }
-  &__name-wrapper,&__select-wrapper {
+
+  &__name-wrapper,
+  &__select-wrapper {
     justify-content: space-between;
   }
+  
+  &__name-wrapper {
+    animation: 2s show ease;
+  }
+
+  &__select-wrapper {
+    opacity: 0;
+    animation: 2s show ease;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+  }
+
+  &__date-wrapper {
+    opacity: 0;
+    animation: 2s show ease;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+  }
+
+  &__password-wrapper {
+    opacity: 0;
+    animation: 2s show ease;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+  }
+
   &__checkbox {
     display: flex;
     flex-direction: row;
@@ -200,6 +230,11 @@
     80% { transform: translate(-1px, -1px) rotate(1deg); }
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  @keyframes show {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   &__error {
