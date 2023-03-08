@@ -39,6 +39,11 @@
     text-align: left;
     color: #111111;
     margin-bottom: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 483px;
+    width: 100%;
   }
 
   &__stripe {
@@ -168,7 +173,7 @@
     line-height: 16px;
     color: #111111;
   }
-  
+
   &__gender-wrapper {
     display: flex;
     flex-direction: row;
